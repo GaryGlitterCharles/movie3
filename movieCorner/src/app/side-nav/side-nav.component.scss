@@ -1,0 +1,30 @@
+.toolBar {
+  background-color: lightgray;
+}
+.example-card {
+  max-width: 200px;
+}
+
+
+mat-grid-tile {
+  background: lightblue;
+}
+.flex-container {
+  position: absolute;
+  left: 235px;
+  top: 120px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.flex-container > div {
+  margin: 10px;
+}
+.mat-card-avatar {
+  display: none;
+}
+.mat-card-header .mat-card-title{
+  font-size: 18px;
+}

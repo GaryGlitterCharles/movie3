@@ -1,0 +1,65 @@
+<button mat-button (click)="onNoClick()">
+  <i nz-icon nzType="close" nzTheme="outline"></i>
+</button>
+<mat-tab-group>
+  <mat-tab label="720p">
+    <mat-list role="list">
+      <mat-list-item role="listitem">Language : {{data.dataLanguage}}</mat-list-item>
+      <mat-list-item role="listitem">Size : {{data.dataSize[0].size}}</mat-list-item>
+      <mat-list-item role="listitem">
+        <a href="www.pluralsight.com">
+          <button nz-button nzType="default" [nzSize]="size" nzShape="square"><i nz-icon type="download"></i>
+          </button>
+        </a>
+        <!-- {{data.dataSize[0].url}} -->
+      </mat-list-item>
+    </mat-list>
+
+  </mat-tab>
+  <mat-tab label="1080p">
+    <mat-list role="list">
+      <mat-list-item role="listitem">Language : {{data.dataLanguage}}</mat-list-item>
+      <mat-list-item role="listitem">Size : {{data.dataSize[1].size}}</mat-list-item>
+      <mat-list-item role="listitem">
+        <a href="www.pluralsight.com">
+          <button nz-button nzType="default" [nzSize]="size" nzShape="square"><i nz-icon type="download"></i>
+          </button>
+        </a>
+      </mat-list-item>
+    </mat-list>
+  </mat-tab>
+  <mat-tab label="Cast">
+    <ul nz-menu [nzMode]="'vertical'" style="width: 240px;" *ngFor="let castDetails of cast?.data?.movie?.cast">
+      <li nz-submenu>
+        <span title><i nz-icon type="user"></i>{{castDetails.name}}</span>
+        <ul>
+          <li nz-menu-group>
+            <span title>Character Name</span>
+            <ul>
+              <li nz-menu-item>{{castDetails.character_name}}</li>
+            </ul>
+            <ul>
+              <img alt="{{castDetails.name}}" src="{{castDetails.url_small_image}}" />
+            </ul>
+          </li>
+
+        </ul>
+      </li>
+
+    </ul>
+  </mat-tab>
+</mat-tab-group>
+<br>
+Rating :
+<nz-rate [ngModel]="cast?.data?.movie?.rating" [nzCount]="10" [nzDisabled]="false"></nz-rate>
+<br><br />
+<!-- <p>{{cast?.data?.movie?.rating}}</p> -->
+<nz-card style="width:898px;" nzTitle="Summary">
+  <p>{{data.datasummary}}</p>
+</nz-card>
+
+<div mat-dialog-actions>
+
+
+
+</div>

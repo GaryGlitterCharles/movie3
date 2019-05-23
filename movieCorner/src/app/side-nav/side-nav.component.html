@@ -1,0 +1,35 @@
+<!-- <mat-toolbar class="toolBar">Movie Corner</mat-toolbar> -->
+
+<app-navigation></app-navigation>
+
+<div class="flex-container">
+  <div *ngIf='!movies'>
+    <mat-spinner></mat-spinner>
+
+  </div>
+  <div *ngFor='let movieList of movies?.data?.movies'>
+    <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{movieList.title}}</mat-card-title>
+        <mat-card-subtitle>year : {{movieList.year}}</mat-card-subtitle>
+      </mat-card-header>
+      <!-- <img mat-card-image src={{movieList.medium_cover_image}} alt={{movieList.title}}> -->
+      <mat-card-content>
+        {{movieList.genres}}
+
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button
+          (click)="openDialog(movieList.summary,movieList.language,movieList.rating,movieList.torrents,movieList.id)">More
+          Details</button>
+      </mat-card-actions>
+    </mat-card>
+
+  </div>
+  <Footer>
+    <mat-paginator *ngIf='movies' #paginator [length]="500" [pageSize]=20 (page)="getNext($event)"
+      [pageSizeOptions]="[5, 10, 15,20]">
+    </mat-paginator>
+  </Footer>
+</div>
